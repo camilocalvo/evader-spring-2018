@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" href ="style.css">
+    <meta charset="utf-8">
+    <title>Evader</title>
+  </head>
+  <body>
+    <script>
+    var counter = 1;
+      function myMove() {
+        moves = 0;
+        var myDiv = document.getElementById("evader");
+        xpos = parseInt(getComputedStyle(myDiv).getPropertyValue("left").match(/\d+/));
+        ypos = parseInt(getComputedStyle(myDiv).getPropertyValue("top").match(/\d+/));
+        if (xpos != 8 && xpos != 208) {
+          return;
+        }
+        if (ypos != 8 && ypos != 208) {
+          return;
+        }
+
+        var id = setInterval(frame, 5);
+        function frame() {
+          if (moves == 200) {
+            clearInterval(id);
+          } else {
+            if (counter <= 2) {
+              xpos += ((counter + 1) % 2);
+              ypos -= (counter % 2);
+            } else {
+              xpos -= ((counter + 1) % 2);
+              ypos += (counter % 2);
+            }
+
+            myDiv.style.left = xpos + 'px';
+            myDiv.style.top = ypos + 'px';
+            moves++;
+          }
+        }
+        if (counter < 4) {
+          counter++;
+        } else {
+          counter = 1;
+        }
+      }
+    </script>
+
+    <div id="evader">
+      <p>I am the Evader</p>
+    </div>
+    <div id="clicker">
+      <button onclick='myMove()'>Move the Evader</button>
+    </div>
+  </body>
+</html>

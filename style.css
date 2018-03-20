@@ -1,0 +1,22 @@
+body {
+  background-color: powderblue;
+}
+
+#evader {
+  background-color: blue;
+  height: 300px;
+  width: 100px;
+  position: absolute;
+  text-align: center;
+  vertical-align: middle;
+}
+
+#clicker {
+  background-color: red;
+  height: 300px;
+  width: 100px;
+  margin-left: 600px;
+  position: absolute;
+  text-align: center;
+  vertical-align: middle;
+}

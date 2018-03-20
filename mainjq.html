@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" href ="style.css">
+    <meta charset="utf-8">
+    <title>Evader</title>
+  </head>
+  <body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+      counter = 1;
+      $(document).ready(function(){
+        $("button").click(function(){
+          if (counter == 1) {
+            $("#evader").animate({left: '258px'});
+          }
+          else if (counter == 2) {
+            $("#evader").animate({top: '258px'});
+          }
+          else if (counter == 3) {
+            $("#evader").animate({left: '8px'});
+          }
+          else if (counter == 4) {
+            $("#evader").animate({top: '8px'});
+          }
+          if (counter != 4) {
+            counter += 1;
+          }
+          else {
+            counter = 1;
+          }
+        })
+      })
+    </script>
+
+    <div id="evader">
+      <p>I am the Evader</p>
+    </div>
+    <div id="clicker">
+      <button onclick='myMove()'>Move the Evader</button>
+    </div>
+  </body>
+</html>
